@@ -18,7 +18,6 @@
     },
     "dependencies": {
         "codemirror": "^6.0.1",
-        "glob": "^11.0.0",
         "quill": "2.0.0-beta.0",
         "quill-delta-to-html": "^0.12.1",
         "quill-image-uploader": "^1.2.4"
