@@ -23,8 +23,7 @@ export default defineConfig({
         laravel({
             input: [
                 ...getFiles('resources/css', '.css'),
-                ...getFiles('resources/js', '.js'),
-                ...getFiles('resources/scss', '.scss'),
+                ...getFiles('resources/js', '.js')
             ],
             refresh: true,
         }),
