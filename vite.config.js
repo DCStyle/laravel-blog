@@ -1,14 +1,16 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
+import { glob } from 'glob';
 
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/css/app.css', 'resources/js/app.js', 'resources/css/admin.css', 'resources/js/post.js', 'resources/js/createPost.js', 'resources/js/filtr.js', 'resources/js/profile.js', 'resources/js/history.js', 'resources/js/highlight.js', 'resources/js/theme.js', 'resources/js/editPost.js', 'resources/js/loadPosts.js', 'resources/js/image.js'],
+            input: [
+                ...glob.sync('resources/css/**/*.css'),
+                ...glob.sync('resources/js/**/*.js'),
+                ...glob.sync('resources/scss/**/*.scss'),  // If you have SCSS files
+            ],
             refresh: true,
-            server: {
-                host: 'localhost',
-            },
         }),
     ],
 });
