@@ -42,15 +42,19 @@ class MenuController extends Controller
     }
 
     // Show the form for editing the specified menu item
-    public function edit(MenuItem $menuItem)
+    public function edit($id)
     {
+        $menuItem = MenuItem::findOrFail($id);
+
         $menuItems = MenuItem::whereNull('parent_id')->where('id', '!=', $menuItem->id)->get(); // Avoid self-selection as parent
         return view('menu.edit', compact('menuItem', 'menuItems'));
     }
 
     // Update the specified menu item in the database
-    public function update(Request $request, MenuItem $menuItem)
+    public function update(Request $request, $id)
     {
+        $menuItem = MenuItem::findOrFail($id);
+
         $request->validate([
             'title' => 'required|string|max:255',
             'url' => 'required|string|max:255',
@@ -68,8 +72,9 @@ class MenuController extends Controller
     }
 
     // Remove the specified menu item from the database
-    public function destroy(MenuItem $menuItem)
+    public function destroy($id)
     {
+        $menuItem = MenuItem::findOrFail($id);
         $menuItem->delete();
 
         // Refresh cache

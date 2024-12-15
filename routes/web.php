@@ -51,7 +51,7 @@ Route::middleware(['auth'])->prefix('dashboard')->group(function () {
     Route::resource('pages', PageAdminController::class);
 
     // HEADER MENU ITEMS
-    Route::resource('menu', MenuController::class, ['except' => 'show']);
+    Route::resource('menu', MenuController::class)->except(['show']);
 
     // FOOTER LINKS
     Route::resource('footer-links', FooterLinkController::class)->except(['show']);
