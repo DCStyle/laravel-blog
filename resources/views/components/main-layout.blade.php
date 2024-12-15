@@ -12,7 +12,7 @@
 
     <title>{{ \App\Models\Setting::get('site_name') ?? config('app.name', 'Laravel') }}</title>
 
-    <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}" />
+    <link rel="icon" type="image/png" href="{{ \App\Models\Setting::get('favicon') ?? asset('images/favicon.png') }}" />
 
     @vite(['resources/css/app.css'])
 </head>
