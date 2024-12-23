@@ -47,7 +47,7 @@
                 <div class="flex-shrink-0 flex items-center mx-auto sm:mx-0">
                     <a href="{{ route('home') }}" class="text-xl font-bold">
                         @if(\App\Models\Setting::get('logo') !== null)
-                            <img src="{{ asset(\App\Models\Setting::get('logo')) }}" alt="{{ \App\Models\Setting::get('site_name') }}" class="h-8">
+                            <img src="{{ asset(\App\Models\Setting::get('logo')) }}" alt="{{ \App\Models\Setting::get('site_name') }}" class="h-10">
                         @else
                             {{ \App\Models\Setting::get('site_name') }}
                         @endif
