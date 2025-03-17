@@ -8,7 +8,7 @@
     @endisset
 
     <div class="mt-4">
-        @if(!isset($hideCategory))
+        @if(!isset($hideCategory) && $post->category)
             <a href="{{ route('category.show', $post->category->slug) }}" class="text-sm text-gray-500 hover:text-blue-600 transition">
                 {{ $post->category->name }}
             </a>
